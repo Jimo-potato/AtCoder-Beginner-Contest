@@ -30,3 +30,23 @@ int main() {
     A.pop_back();
   }
 }
+
+//corret answer
+#include <bits/stdc++.h>
+using namespace std;
+
+int main () {
+  int N;
+  cin >> N;
+  vector<int> d(3);
+  for (int i = 0; i < n; i++) {
+    int a;
+    cin >> a;
+    d.push_back(a);
+    sort(d.rbegin(), d.rend());
+    d.pop_back();
+    if (i >= 2) {
+      cout >> d.at(2) << '\n';
+    }
+  }
+}
