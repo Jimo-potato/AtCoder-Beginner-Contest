@@ -11,3 +11,28 @@ int main() {
     cout << S << "er" << endl;
   }
 }
+
+// correct answer
+#include <iostream>
+using std::cin;
+using std::cout;
+#include <string>
+using std::string;
+
+
+int main (void) {
+	string s;
+	cin >> s;
+
+	string t;
+	if (s.back() == 'e') {
+		t = s + "r";
+	} else {
+		t = s + "er";
+	}
+
+	cout << t << "\n";
+
+
+	return 0;
+}
