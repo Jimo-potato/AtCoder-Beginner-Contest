@@ -52,3 +52,42 @@ int main() {
 
     cout << ans << endl;
 }
+
+// correct answer
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<string> S(5);
+    for (auto& s : S) cin >> s;
+
+    int ans = 5;
+    // 横
+    for (int k = 0; k < 5; k++) {
+        int count = 0;
+        for (int i = 0; i < 5; i++)
+            if (S[k][i] == '.') count++;
+        ans = min(ans, count);
+    }
+    // 縦
+    for (int k = 0; k < 5; k++) {
+        int count = 0;
+        for (int i = 0; i < 5; i++)
+            if (S[i][k] == '.') count++;
+        ans = min(ans, count);
+    }
+    // 斜め
+    {
+        int count = 0;
+        for (int i = 0; i < 5; i++)
+            if (S[i][i] == '.') count++;
+        ans = min(ans, count);
+    }
+    {
+        int count = 0;
+        for (int i = 0; i < 5; i++)
+            if (S[i][4 - i] == '.') count++;
+        ans = min(ans, count);
+    }
+    cout << ans << "\n";
+}
