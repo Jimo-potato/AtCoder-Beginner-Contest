@@ -39,14 +39,14 @@ int main () {
   int N;
   cin >> N;
   vector<int> d(3);
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < N; i++) {
     int a;
     cin >> a;
     d.push_back(a);
     sort(d.rbegin(), d.rend());
     d.pop_back();
     if (i >= 2) {
-      cout >> d.at(2) << '\n';
+      //cout >> d.at(2) >> '\n';
     }
   }
 }
