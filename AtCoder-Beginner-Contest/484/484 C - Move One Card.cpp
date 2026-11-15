@@ -59,3 +59,57 @@ int main() {
         cout << "No" << endl;
     }
 }
+
+// correcct answer
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    vector<int> A(N), B(N);
+    for (auto&& a : A) cin >> a;
+    for (auto&& b : B) cin >> b;
+    
+    // 後ろから一致している部分を削除
+    while (!A.empty() && A.back() == B.back()) {
+        A.pop_back();
+        B.pop_back();
+    }
+    
+    // 反転して
+    ranges::reverse(A);
+    ranges::reverse(B);
+    // 一致している部分を削除
+    while (!A.empty() && A.back() == B.back()) {
+        A.pop_back();
+        B.pop_back();
+    }
+    
+    // A == B なら
+    if (A.empty()) { // Yes
+        cout << "Yes" << endl;
+        return 0;
+    }
+    
+    // 左にシフトした場合と
+    auto A_lshift = A;
+    ranges::rotate(A_lshift, begin(A_lshift) + 1);
+    if (A_lshift == B) {
+        cout << "Yes" << endl;
+        return 0;
+    }
+    
+    // 右にシフトした場合を試す
+    auto A_rshift = A;
+    ranges::rotate(A_rshift, end(A_rshift) - 1);
+    if (A_rshift == B) {
+        cout << "Yes" << endl;
+        return 0;
+    }
+    
+    cout << "No" << endl;
+    return 0;
+}
